@@ -1,0 +1,33 @@
+{
+  "name": "cqs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "start": "node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arkady-Skvortsov/cqs.js.git"
+  },
+  "keywords": [
+    "cqs",
+    "implementation",
+    "experience"
+  ],
+  "author": "Arkady-Skvortsov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arkady-Skvortsov/cqs.js/issues"
+  },
+  "homepage": "https://github.com/Arkady-Skvortsov/cqs.js#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.24",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}

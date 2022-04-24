@@ -4,12 +4,14 @@
     "target": "es5",
     "module": "commonjs",
     "strict": true,
+    "lib": ["ES6"],
     "strictFunctionTypes": false,
     "moduleResolution": "node",
     "sourceMap": true,
+    "rootDir": "lib",
     "downlevelIteration": true,
     "esModuleInterop": true
   },
-  "include": ["lib/**/*", "tests"],
+  "include": ["lib/**/*"],
   "exclude": ["node_modules"]
 }

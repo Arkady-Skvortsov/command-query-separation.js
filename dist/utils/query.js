@@ -4,7 +4,7 @@ exports.Query = void 0;
 var Query = /** @class */ (function () {
     function Query() {
     }
-    Query.prototype.execute = function (query) { };
+    Query.prototype.execute = function (functionName) { };
     return Query;
 }());
 exports.Query = Query;

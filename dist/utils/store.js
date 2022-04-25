@@ -7,14 +7,16 @@ var Store = /** @class */ (function () {
     }
     Store.prototype.register = function (type, fn) {
         this.store.push({ type: type, fn: fn });
-        console.log("".concat(fn.name, " had been added in store ").concat(this.store.length));
     };
     Store.prototype.unregister = function (title) {
-        this.store.filter(function (store) { return store.fn.name !== title; });
-        console.log("".concat(this.store.length));
+        var _this = this;
+        this.store.filter(function (store, idx) {
+            if (store.fn.name === title)
+                _this.store.splice(idx, 1);
+        });
     };
     Store.prototype.findByFunctionName = function (type, title) {
-        console.log(this.store.find(function (store) { return store.type === type && store.fn.name === title; }));
+        return this.store.find(function (store) { return store.fn.name === title; });
     };
     return Store;
 }());
@@ -24,7 +26,7 @@ function helloWorld(obj) {
 }
 var store = new Store();
 store.register("Command", helloWorld);
-store.findByFunctionName("Command", "helloWorld");
+console.log(store.findByFunctionName("Command", "helloWorld"));
 store.unregister("helloWorld");
-store.findByFunctionName("Command", "helloWorld");
+console.log(store.findByFunctionName("Command", "helloWorld"));
 //# sourceMappingURL=store.js.map

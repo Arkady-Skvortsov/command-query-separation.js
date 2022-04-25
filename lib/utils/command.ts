@@ -1,6 +1,8 @@
 import { CQS } from "./interfaces/cqs.interface";
 
-class Command extends CQS {
+class Command implements CQS {
+  constructor() {}
+
   public execute(title: string): void {}
 }
 

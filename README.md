@@ -7,13 +7,13 @@
 # Motivation
 
 I'm really tired; I had seen realisation of CQS in TS/JS: "", "";, but I think my would be better, than them, cause - 1) More comfortable interface for working, 2) Enter point and out point
-Here I added the "Store" abstraction for registering events and executing them; THIS IS NOT INCLUDED IN CQS, it's just a pre-fab friendly interface for you guys!
+Here I added the "Store" abstraction for registering events and executing them; THIS IS NOT INCLUDED IN CQS, it's just a pre-fab friendly interface for you, Guys!!! 😊
 
 # How to use
 
 ```ts
 //cqs.ts
-import { Command, Query, Store } from "cqrs.js";
+import { Command, Query, Store } from "cqs.js";
 import { summTwoNumbers, getResult } from "../summ.js";
 
 const store = new Store();

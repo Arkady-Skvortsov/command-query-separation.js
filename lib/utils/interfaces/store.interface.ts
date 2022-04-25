@@ -12,8 +12,9 @@ abstract class Store {
     this.store = [];
   }
 
-  abstract register(type: cqsType, fn: Function): void;
-  abstract unregister(title: string): void;
+  public abstract register(type: cqsType, fn: Function): void;
+  public abstract unregister(title: string): void;
+  protected abstract findByFunctionName(title: string): any;
 }
 
 export { Store, cqsType, payload };

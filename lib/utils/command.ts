@@ -1,11 +1,7 @@
-import { ICommand } from "./interfaces/command.interface";
+import { CQS } from "./interfaces/cqs.interface";
 
-class Command implements ICommand {
-  execute() {}
-
-  register(fn: Function) {}
-
-  unregister(fn: Function) {}
+class Command extends CQS {
+  public execute(title: string): void {}
 }
 
 export { Command };

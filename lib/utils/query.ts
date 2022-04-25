@@ -1,11 +1,7 @@
-import { IQuery } from "./interfaces/query.interface";
+import { CQS } from "./interfaces/cqs.interface";
 
-class Query implements IQuery {
-  execute(query: string) {}
-
-  register(fn: Function) {}
-
-  unregister(fn: Function) {}
+class Query implements CQS {
+  public execute(query: string): void {}
 }
 
 export { Query };

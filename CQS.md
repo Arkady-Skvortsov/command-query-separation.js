@@ -6,8 +6,11 @@ More formally, methods should return a value only if they are referentially tran
 
 For using it you need to have a global state(object, class) with you'r variables
 
+(⚠️) The concept takes a lot of practice and attention
+
 # Basics
 
+Wikipedia: https://en.wikipedia.org/wiki/Command–query_separation
 Martin Fowler: https://martinfowler.com/bliki/CommandQuerySeparation.html
 
 # Simple example of usage
@@ -20,7 +23,7 @@ let arr: number[] = [];
 function pushInArrayAndReturnByIndex(elem: number, idx: number): number {
   arr.push(elem);
 
-  return arr.find((arr, i) => idx === i);
+  arr.find((arr, i) => idx === i);
 }
 ```
 
@@ -34,6 +37,6 @@ function pushInArray(elem: number) {
 }
 
 function getResult(idx: number): number {
-  return arr.find((arr, i) => idx === i);
+  arr.find((arr, i) => idx === i);
 }
 ```

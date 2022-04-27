@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "es5",
+    "target": "esnext",
     "module": "commonjs",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["reflect-metadata", "jest"],
     "strict": true,
-    "lib": ["ES6"],
+    "lib": ["ES6", "DOM"],
     "strictFunctionTypes": false,
     "moduleResolution": "node",
     "sourceMap": true,

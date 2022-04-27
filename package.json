@@ -1,11 +1,12 @@
 {
-  "name": "cqs",
+  "name": "command-query-separation.js",
   "version": "1.0.0",
   "description": "",
+  "type": "commonjs",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc --build",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,9 @@
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.24",
+    "inversify": "^6.0.1",
     "jest": "^27.5.1",
+    "reflect-metadata": "^0.1.13",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"

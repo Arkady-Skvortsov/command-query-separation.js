@@ -1,1 +1,1 @@
-{"version":3,"file":"store.interface.js","sourceRoot":"","sources":["../../../lib/utils/interfaces/store.interface.ts"],"names":[],"mappings":";;;AAOA;IAGE;QACE,IAAI,CAAC,KAAK,GAAG,EAAE,CAAC;IAClB,CAAC;IAIH,YAAC;AAAD,CAAC,AATD,IASC;AAEQ,sBAAK"}
+{"version":3,"file":"store.interface.js","sourceRoot":"","sources":["../../../lib/utils/interfaces/store.interface.ts"],"names":[],"mappings":";;;AAOA,MAAe,KAAK;IACD,KAAK,CAAY;IAElC;QACE,IAAI,CAAC,KAAK,GAAG,EAAE,CAAC;IAClB,CAAC;CAKF;AAEQ,sBAAK"}

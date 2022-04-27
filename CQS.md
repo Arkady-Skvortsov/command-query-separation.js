@@ -6,7 +6,7 @@ More formally, methods should return a value only if they are referentially tran
 
 For using it you need to have a global state(object, class) with you'r variables
 
-(⚠️) The concept takes a lot of practice and attention
+(⚠️) That concept need a little more time than you think!
 
 # Basics
 

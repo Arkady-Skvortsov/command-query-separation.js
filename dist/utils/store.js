@@ -12,8 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Store = void 0;
 const inversify_1 = require("inversify");
 require("reflect-metadata");
-const command_1 = require("./command");
-const container_1 = require("./container/container");
+const query_1 = require("./query");
 let Store = class Store {
     store;
     constructor() {
@@ -29,8 +28,8 @@ let Store = class Store {
                 this.store.splice(idx, 1);
         });
     }
-    findByFunctionName(title) {
-        return this.store.find((store) => store.fn.name === title);
+    findByFunctionName(type, title) {
+        return this.store.find((store) => store.type === type && store.fn.name === title);
     }
 };
 Store = __decorate([
@@ -40,10 +39,10 @@ Store = __decorate([
 exports.Store = Store;
 function getMyName(x) {
     let a = x;
-    return `Arkadiy`;
+    return "Arkadiy";
 }
 const store = new Store();
 store.register("Query", getMyName);
-const command = container_1.container.get(command_1.Command);
-command.execute("getMyName");
+const query = new query_1.Query(store);
+query.execute("getMyName");
 //# sourceMappingURL=store.js.map

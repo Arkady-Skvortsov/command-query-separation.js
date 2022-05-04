@@ -5,7 +5,6 @@ import { Store } from "../store";
 import { Command } from "../command";
 
 const container = new Container();
-container.bind<Store>(TYPES.Store).to(Store);
-container.bind<Command>(TYPES.Command).to(Command);
+container.bind<Store>(TYPES.Store).to(Store).inSingletonScope();
 
 export { container };

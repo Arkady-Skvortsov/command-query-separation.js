@@ -1,9 +1,18 @@
+import { inject, injectable } from "inversify";
 import { CQS } from "./interfaces/cqs.interface";
+import { TYPES } from "./container/types";
+import { Store } from "./store";
+import { giveMeArguments } from "./helpers/helper";
 
+@injectable()
 class Query implements CQS {
-  constructor() {}
+  constructor(@inject(TYPES.Store) private store: Store) {}
 
-  public execute(title: string): void {}
+  public execute(title: string): void {
+    const query = this.store.findByFunctionName("Query", title);
+
+    this.execute.apply(query?.fn, query?.fn.arguments);
+  }
 }
 
 export { Query };

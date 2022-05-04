@@ -1,13 +1,12 @@
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { Command } from "./command";
-import { container } from "./container/container";
-import { TYPES } from "./container/types";
+import { giveMeArguments } from "./helpers/helper";
 import {
   Store as IStore,
   cqsType,
   payload,
 } from "./interfaces/store.interface";
+import { Query } from "./query";
 
 @injectable()
 class Store {
@@ -29,21 +28,22 @@ class Store {
     });
   }
 
-  public findByFunctionName(title: string) {
-    return this.store.find((store) => store.fn.name === title);
+  public findByFunctionName(type: cqsType, title: string) {
+    return this.store.find(
+      (store) => store.type === type && store.fn.name === title
+    );
   }
 }
 
 function getMyName(x: string) {
   let a = x;
-
-  return `Arkadiy`;
+  return "Arkadiy";
 }
 
 const store = new Store();
 store.register("Query", getMyName);
 
-const command = container.get(Command);
-command.execute("getMyName");
+const query = new Query(store);
+query.execute("getMyName");
 
 export { Store };

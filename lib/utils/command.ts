@@ -9,7 +9,4 @@ class Command implements CQS {
   public execute(title: string): any {}
 }
 
-const command = new Command();
-command.execute("Pipi");
-
 export { Command };

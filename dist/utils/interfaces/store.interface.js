@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IStore = void 0;
-class IStore {
+exports.Store = void 0;
+class Store {
 }
-exports.IStore = IStore;
+exports.Store = Store;
 //# sourceMappingURL=store.interface.js.map

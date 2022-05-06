@@ -10,6 +10,10 @@ I'm really tired; I had seen realisation of CQS in TS/JS: "https://www.npmjs.com
 
 # How to use
 
+```sh
+  npm i cqs.js
+```
+
 ```ts
 //functions.ts
 const x = 0;
@@ -27,22 +31,22 @@ export { summTwoNumbers, getResult };
 
 ```ts
 //cqs.ts
-import { Command, Query, Store } from "cqs.js";
-import { summTwoNumbers, getResult } from "../functions";
+import { Command, Query, Store } from 'cqs.js';
+import { summTwoNumbers, getResult } from '../functions';
 
 const store = Store;
 const command = Command;
 const query = Query;
 
 // Register new commands/query
-store.register("Command", summTwoNumbers);
-store.register("Query", getResult);
+store.register('Command', summTwoNumbers, 2, 25);
+store.register('Query', getResult);
 
 // Run some command/query by title
-command.execute("summTwoNumbers", 2, 25);
-query.execute("getResult"); // 27
+command.execute('summTwoNumbers');
+query.execute('getResult'); // 27
 
 // Unregister of some command/query by her title
-store.unregister("summTwoNumbers");
-store.unregister("getResult");
+store.unregister('Command', 'summTwoNumbers');
+store.unregister('Query', 'getResult');
 ```

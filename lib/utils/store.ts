@@ -1,6 +1,10 @@
-import { injectable } from "inversify";
-import "reflect-metadata";
-import { IStore, cqsType, payload } from "./interfaces/store.interface";
+import { injectable } from 'inversify';
+import 'reflect-metadata';
+import {
+  Store as IStore,
+  cqsType,
+  payload,
+} from './interfaces/store.interface';
 
 @injectable()
 class Store implements IStore {
@@ -24,7 +28,7 @@ class Store implements IStore {
 
   public findByFunctionName(type: cqsType, title: string): payload | undefined {
     return this.store.find(
-      (store) => store.type === type && store.fn.name === title
+      (store) => store.type === type && store.fn.name === title,
     );
   }
 }

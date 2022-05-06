@@ -1,0 +1,30 @@
+{
+  "defaultSeverity": "error",
+  "extends": "tslint:recommended",
+  "jsRules": {},
+  "rules": {
+    "variable-name": {
+      "options": [
+        true,
+        "check-format",
+        "allow-snake-case",
+        "allow-leading-underscore",
+        "allow-trailing-underscore"
+      ]
+    },
+    "class-name": {
+      "options": [
+        true,
+        "allow-leading-underscore",
+        "allow-snake-case",
+        "allow-trailing-underscore"
+      ]
+    },
+    "max-line-length": [true, 120],
+    "triple-equals": true,
+    "linebreak-style": [true, "CRLF"],
+    "ordered-imports": false,
+    "ban-types": false
+  },
+  "rulesDirectory": []
+}

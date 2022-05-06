@@ -1,15 +1,9 @@
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { giveMeArguments } from "./helpers/helper";
-import {
-  Store as IStore,
-  cqsType,
-  payload,
-} from "./interfaces/store.interface";
-import { Query } from "./query";
+import { IStore, cqsType, payload } from "./interfaces/store.interface";
 
 @injectable()
-class Store {
+class Store implements IStore {
   private readonly store: payload[];
 
   constructor() {
@@ -28,22 +22,11 @@ class Store {
     });
   }
 
-  public findByFunctionName(type: cqsType, title: string) {
+  public findByFunctionName(type: cqsType, title: string): payload | undefined {
     return this.store.find(
       (store) => store.type === type && store.fn.name === title
     );
   }
 }
-
-function getMyName(x: string) {
-  let a = x;
-  return "Arkadiy";
-}
-
-const store = new Store();
-store.register("Query", getMyName);
-
-const query = new Query(store);
-query.execute("getMyName");
 
 export { Store };

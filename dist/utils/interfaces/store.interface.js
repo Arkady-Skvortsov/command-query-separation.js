@@ -1,11 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Store = void 0;
-class Store {
-    store;
-    constructor() {
-        this.store = [];
-    }
+exports.IStore = void 0;
+class IStore {
 }
-exports.Store = Store;
+exports.IStore = IStore;
 //# sourceMappingURL=store.interface.js.map

@@ -1,7 +1,20 @@
-describe("Query", () => {
-  beforeEach(() => {});
+import { cqsType } from "../lib/utils/interfaces/store.interface";
+import { Query } from "../lib/utils/query";
+import { Store } from "../lib/utils/store";
 
-  xit("Should be register a new query", () => {
-    expect(2).not.toEqual(3);
+describe("Query", () => {
+  let store: Store;
+  let query: Query;
+  let type: cqsType;
+  let fn: Function;
+
+  beforeEach(() => {
+    type = "Query";
+    store = new Store();
+  });
+
+  describe("Should be execute a query", () => {
+    it("Without arguments", () => {});
+    it("With arguments", () => {});
   });
 });

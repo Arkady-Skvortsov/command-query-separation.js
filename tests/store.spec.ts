@@ -1,14 +1,14 @@
 import { cqsType } from "../lib/utils/interfaces/store.interface";
 import { Store } from "../lib/utils/store";
+import { getVariable, summ } from "./mock-data";
 
 describe("Store", () => {
-  let store: any;
-  let type;
+  let store: Store;
+  let type: cqsType;
   let fn: Function;
 
-  beforeAll(() => {
-    type = jest.fn(() => "Query");
-    fn = function () {};
+  beforeEach(() => {
+    store = new Store();
   });
 
   it("Store should be defined", () => {
@@ -16,16 +16,35 @@ describe("Store", () => {
   });
 
   describe("Should be register a new function in store", () => {
-    it("Should be register a new Query", () => {});
+    it("Should be register a new Query", () => {
+      type = "Query";
+      fn = getVariable;
 
-    it("Should be register a new Command", () => {});
+      store.register(type, fn);
+
+      // expect(store.findByFunctionName(type, "getVariable")).toBe({
+      //   type,
+      //   fn,
+      // });
+    });
+
+    it("Should be register a new Command", () => {
+      type = "Command";
+      fn = summ;
+
+      store.register(type, fn);
+    });
   });
 
-  describe("Should be unregister function from store", () => {
-    it("Should be unregister a query", () => {});
+  describe("Should be unregister a function from store", () => {
+    it("Should be unregister a query", () => {
+      type = "Query";
+      store.unregister(type, "getVariable");
+    });
 
-    it("Shold be unregister a command", () => {});
+    it("Shold be unregister a command", () => {
+      type = "Command";
+      store.unregister(type, "summ");
+    });
   });
-
-  it("Should be define a function by her title from store", () => {});
 });

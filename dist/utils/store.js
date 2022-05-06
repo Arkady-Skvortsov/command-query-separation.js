@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Store = void 0;
 const inversify_1 = require("inversify");
 require("reflect-metadata");
+const command_1 = require("./command");
 const query_1 = require("./query");
 let Store = class Store {
     store;
@@ -37,12 +38,18 @@ Store = __decorate([
     __metadata("design:paramtypes", [])
 ], Store);
 exports.Store = Store;
-function getMyName(x) {
-    let a = x;
-    return "Arkadiy";
+let x = 0;
+function summ(y) {
+    x = x + 12;
+}
+function getVariable() {
+    return x;
 }
 const store = new Store();
-store.register("Query", getMyName);
+store.register("Command", summ);
+store.register("Query", getVariable);
+const command = new command_1.Command(store);
 const query = new query_1.Query(store);
-query.execute("getMyName");
+command.execute("summ");
+console.log(query.execute("getVariable"));
 //# sourceMappingURL=store.js.map

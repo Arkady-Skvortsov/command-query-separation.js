@@ -5,16 +5,13 @@ interface payload {
   fn: Function;
 }
 
-abstract class Store {
-  private readonly store: payload[];
-
-  constructor() {
-    this.store = [];
-  }
-
+abstract class IStore {
   public abstract register(type: cqsType, fn: Function): void;
-  public abstract unregister(title: string): void;
-  protected abstract findByFunctionName(title: string): any;
+  public abstract unregister(type: cqsType, title: string): void;
+  public abstract findByFunctionName(
+    type: cqsType,
+    title: string
+  ): payload | undefined;
 }
 
-export { Store, cqsType, payload };
+export { IStore, cqsType, payload };

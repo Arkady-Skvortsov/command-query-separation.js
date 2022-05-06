@@ -4,14 +4,13 @@ import { TYPES } from "./container/types";
 import { Store } from "./store";
 import { giveMeArguments } from "./helpers/helper";
 
-@injectable()
 class Query implements CQS {
   constructor(@inject(TYPES.Store) private store: Store) {}
 
-  public execute(title: string): void {
+  public execute(title: string): Function {
     const query = this.store.findByFunctionName("Query", title);
 
-    this.execute.apply(query?.fn, query?.fn.arguments);
+    return query?.fn();
   }
 }
 

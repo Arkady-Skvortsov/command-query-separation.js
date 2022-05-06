@@ -6,7 +6,13 @@ import { giveMeArguments } from "./helpers/helper";
 import { Store } from "./store";
 
 class Command implements CQS {
-  public execute(title: string): any {}
+  constructor(@inject(TYPES.Store) private store: Store) {}
+
+  public execute(title: string): Function {
+    const command = this.store.findByFunctionName("Command", title);
+
+    return command?.fn();
+  }
 }
 
 export { Command };

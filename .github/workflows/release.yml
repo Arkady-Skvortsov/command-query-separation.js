@@ -1,0 +1,34 @@
+name: CQS release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 16.x, 17.x, 18.x]
+
+    steps:
+      - name: Checkout nodejs
+      - uses: actions/checkout@v2
+
+      - name: Run CI process
+        run: npm ci
+
+      - name: Check cache
+        uses: actions/cache@v3.0.2
+
+      - name: Jest coverage report
+        uses: ArtiomTr/jest-coverage-report-action@v2.0.6
+
+      - name: Run Unit tests
+        run: npm run test
+
+      - name: Build a project
+        run: npm run build

@@ -1,5 +1,5 @@
 abstract class CQS {
-  abstract execute(command: string): any;
+  public abstract execute(command: string): Function;
 }
 
 export { CQS };

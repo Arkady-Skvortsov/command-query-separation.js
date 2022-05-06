@@ -1,5 +1,5 @@
-function giveMeArguments(params: Parameters<typeof Function>[0]): any {
-  return params;
+function giveMeArguments(fn: Parameters<typeof Function>[0]): any {
+  return fn;
 }
 
 export { giveMeArguments };

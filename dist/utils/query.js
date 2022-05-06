@@ -23,11 +23,10 @@ let Query = class Query {
     }
     execute(title) {
         const query = this.store.findByFunctionName("Query", title);
-        console.log(Object.keys(query?.fn.arguments));
+        return query?.fn();
     }
 };
 Query = __decorate([
-    (0, inversify_1.injectable)(),
     __param(0, (0, inversify_1.inject)(types_1.TYPES.Store)),
     __metadata("design:paramtypes", [store_1.Store])
 ], Query);

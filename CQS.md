@@ -10,7 +10,7 @@ For using it you need to have a global state(object, class) with you'r variables
 
 # Basics
 
-Wikipedia: https://en.wikipedia.org/wiki/Command–query_separation
+Wikipedia: https://en.wikipedia.org/wiki/Command–query_separation<br />
 Martin Fowler: https://martinfowler.com/bliki/CommandQuerySeparation.html
 
 # Simple example of usage
@@ -23,7 +23,7 @@ let arr: number[] = [];
 function pushInArrayAndReturnByIndex(elem: number, idx: number): number {
   arr.push(elem);
 
-  arr.find((arr, i) => idx === i);
+  return arr.find((arr, i) => idx === i);
 }
 ```
 
@@ -37,6 +37,6 @@ function pushInArray(elem: number) {
 }
 
 function getResult(idx: number): number {
-  arr.find((arr, i) => idx === i);
+  return arr.find((arr, i) => idx === i);
 }
 ```

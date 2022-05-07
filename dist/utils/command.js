@@ -21,9 +21,9 @@ let Command = class Command {
     constructor(store) {
         this.store = store;
     }
-    execute(title) {
-        const command = this.store.findByFunctionName("Command", title);
-        return command?.fn();
+    execute(title, ...params) {
+        const command = this.store.findByFunctionName('Command', title);
+        return command?.fn.apply(this, params);
     }
 };
 Command = __decorate([

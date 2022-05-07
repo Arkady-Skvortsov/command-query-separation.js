@@ -21,9 +21,9 @@ let Query = class Query {
     constructor(store) {
         this.store = store;
     }
-    execute(title) {
-        const query = this.store.findByFunctionName("Query", title);
-        return query?.fn();
+    execute(title, ...params) {
+        const query = this.store.findByFunctionName('Query', title);
+        return query?.fn.apply(this, params);
     }
 };
 Query = __decorate([

@@ -34,16 +34,16 @@ export { summTwoNumbers, getResult };
 import { Command, Query, Store } from 'cqs.js';
 import { summTwoNumbers, getResult } from '../functions';
 
-const store = Store;
-const command = Command;
-const query = Query;
+const store = new Store();
+const command = new Command(store);
+const query = new Query(store);
 
 // Register new commands/query
-store.register('Command', summTwoNumbers, 2, 25);
+store.register('Command', summTwoNumbers);
 store.register('Query', getResult);
 
 // Run some command/query by title
-command.execute('summTwoNumbers');
+command.execute('summTwoNumbers', 2, 25);
 query.execute('getResult'); // 27
 
 // Unregister of some command/query by her title

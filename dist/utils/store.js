@@ -12,8 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Store = void 0;
 const inversify_1 = require("inversify");
 require("reflect-metadata");
-const command_1 = require("./command");
-const query_1 = require("./query");
 let Store = class Store {
     store;
     constructor() {
@@ -23,11 +21,9 @@ let Store = class Store {
         this.store.push({ type, fn });
     }
     unregister(type, title) {
-        const typeArray = this.store.filter((store) => store.type === type);
-        typeArray.filter((typeArr, idx) => {
-            if (typeArr.fn.name === title)
-                this.store.splice(idx, 1);
-        });
+        this.store.find((store, idx) => store.type === type && store.fn.name === title
+            ? this.store.splice(idx, 1)
+            : undefined);
     }
     findByFunctionName(type, title) {
         return this.store.find((store) => store.type === type && store.fn.name === title);
@@ -38,19 +34,4 @@ Store = __decorate([
     __metadata("design:paramtypes", [])
 ], Store);
 exports.Store = Store;
-let x = 12;
-function summTwoNumbers(y = 33) {
-    const b = 12;
-    x = b + y + x;
-}
-function getResult() {
-    return x;
-}
-const store = new Store();
-const command = new command_1.Command(store);
-const query = new query_1.Query(store);
-store.register('Command', summTwoNumbers);
-store.register('Query', getResult);
-command.execute('summTwoNumbers');
-console.log(query.execute('getResult'));
 //# sourceMappingURL=store.js.map

@@ -1,7 +1,7 @@
 let x = 0;
 
-function summ() {
-  x += 10;
+function summ(y: number = 10) {
+  x = x += y;
 }
 
 function getVariable() {

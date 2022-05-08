@@ -1,6 +1,6 @@
 type cqsType = 'Command' | 'Query';
 
-interface payload {
+interface payloadFn {
   type: cqsType;
   fn: Function;
 }
@@ -11,7 +11,7 @@ abstract class Store {
   public abstract findByFunctionName(
     type: cqsType,
     title: string,
-  ): payload | undefined;
+  ): payloadFn | undefined;
 }
 
-export { Store, cqsType, payload };
+export { Store, cqsType, payloadFn };
